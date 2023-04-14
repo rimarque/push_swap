@@ -71,4 +71,10 @@ int count_op(node *element, int size, list stack);
 
 //algorithm
 void algorithm(list *stack_a, list *stack_b);
+
+//push_to_a
+node *find_next_biggest(int nbr, list stack);
+node *find_smallest(list stack);
+void rotate_a(int nbr, list *stack);
+void final_rotation(list *stack);
 #endif

@@ -11,7 +11,7 @@ void sort3(list *stack)
     }
     else if (stack->first->val > stack->first->next->val && stack->first->val  > stack->first->prev->val) //case 3
         rotate(stack, 'a');
-    else if (stack->first->val < stack->first->next->val && stack->first->val < stack->first->prev->val && stack->first->next->val > stack->first->prev->val) //case 4
+    else if (stack->first->val < stack->first->prev->val && stack->first->next->val > stack->first->prev->val) //case 4
     {    
         swap(stack, 'a');
         rotate(stack, 'a');

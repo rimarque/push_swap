@@ -68,6 +68,7 @@ void    print_val_index(list stack_a, list stack_b)
 {
     node    *element_a = stack_a.first;
     node    *element_b = stack_b.first;
+
     int counter = 0;
     ft_printf("size of stack_a: %d\nsize of stack_b: %d\n", stack_a.size, stack_b.size);
     ft_printf("STACK A        STACK B\n");
@@ -76,14 +77,16 @@ void    print_val_index(list stack_a, list stack_b)
         while(counter < stack_a.size || counter < stack_b.size)
         {
             //printf("counter:%d\n", counter);
-            if (counter >= stack_b.size)
+            if (counter >= stack_b.size || stack_b.first == NULL)
                 printf("%d (%d)\n", element_a->val, element_a->index);
-            else if (counter >= stack_a.size)
+            else if (counter >= stack_a.size || stack_a.first == NULL)
                 printf("               %d (%d)\n", element_b->val, element_b->index);
             else
                 printf("%d (%d)         %d (%d)\n", element_a->val, element_a->index, element_b->val, element_b->index);
-            element_a = element_a->next;
-            element_b = element_b->next;
+            if (stack_a.first != NULL)
+                element_a = element_a->next;
+            if (stack_b.first != NULL)
+                element_b = element_b->next;
             counter++;
         }
     }
@@ -114,12 +117,12 @@ int main(int argc, char **argv)
         i++;
     }
     ft_isdouble(&stack_a);
-    algorithm(&stack_a, &stack_b);
+    //algorithm(&stack_a, &stack_b);
     //rotate(&stack_a, 'a');
     //rotate_rev_rr(&stack_a, &stack_b);
     //push(&stack_b, &stack_a);
     //swap(&stack_a, 'a');
-    //sort3(&stack_a);
+    sort3(&stack_a);
     /*element = stack_a.first;
     while (counter++ < stack_a.size)
     {

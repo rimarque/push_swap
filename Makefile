@@ -26,7 +26,8 @@ SRC = src/push_swap.c \
 	src/ops/rotate.c \
 	src/sort3.c \
 	src/algorithm.c \
-	src/find_cheap.c
+	src/find_cheap.c \
+	src/push_to_a.c
 
 OBJ = $(SRC:%.c=%.o)
 
