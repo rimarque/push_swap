@@ -37,10 +37,10 @@ typedef struct
 //list
 void    create_list(list *stack);
 void    insert_last(list *stack, int nbr);
-void    insert_first(list *stack, int nbr);
-void    remove_first(list *stack);
+void    insert_first(list *stack, node *new);
+node    *remove_first(list *stack);
 void	shift_index(list *stack);
-void free_stack(list *stack);
+void	free_stack(list *stack);
 
 //check_error
 void	ft_isnbr(const char *str);
@@ -50,7 +50,7 @@ void	ft_isdouble(list	*stack);
 //ops
 void    swap(list *stack, char c);
 void    swap_ss(list *stack_a, list *stack_b);
-void    push(list *stack_a, list *stack_b);
+void	push(list *stack_push, char c, list *stack_rem);
 void    rotate(list *stack, char c);
 void    rotate_rr(list *stack_a, list *stack_b);
 void    rotate_rev(list *stack, char c);
@@ -77,4 +77,7 @@ node *find_next_biggest(int nbr, list stack);
 node *find_smallest(list stack);
 void rotate_a(int nbr, list *stack);
 void final_rotation(list *stack);
+
+//AUX
+void    print_val_index(list stack_a, list stack_b);
 #endif

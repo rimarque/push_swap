@@ -42,17 +42,18 @@ void rotate_a(int nbr, list *stack) //nbr de b, stack_a
     int counter;
     int nop_a;
 
+    printf("NBR:%d\n", nbr); 
     if (is_big(nbr, *stack) || is_small(nbr, *stack)) 
     {
         //printf("is small or big\n");
         smallest = find_smallest(*stack);
-        //printf("biggest:%d\n", biggest->val);    
+        //printf("smallest:%d\n", smallest->val);    
         nop_a = count_r(smallest, stack->size, &flag);
     }
     else
     {
         next_biggest = find_next_biggest(nbr, *stack);
-        //printf("next_smallest:%d\n", next_smallest->val);
+        //printf("next_biggest:%d\n", next_biggest->val);
         nop_a = count_r(next_biggest, stack->size, &flag);
     }
     counter = 0;

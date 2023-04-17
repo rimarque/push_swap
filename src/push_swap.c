@@ -117,12 +117,12 @@ int main(int argc, char **argv)
         i++;
     }
     ft_isdouble(&stack_a);
-    //algorithm(&stack_a, &stack_b);
+    algorithm(&stack_a, &stack_b);
     //rotate(&stack_a, 'a');
     //rotate_rev_rr(&stack_a, &stack_b);
     //push(&stack_b, &stack_a);
     //swap(&stack_a, 'a');
-    sort3(&stack_a);
+    //sort3(&stack_a);
     /*element = stack_a.first;
     while (counter++ < stack_a.size)
     {
@@ -137,6 +137,6 @@ int main(int argc, char **argv)
     //print_list_index(stack_a, 'a');
     //print_list_index(stack_b, 'b');
     print_val_index(stack_a, stack_b);
-    //free_stack(&stack_a);
-    //free_stack(&stack_b);
+    free_stack(&stack_a);
+    free_stack(&stack_b);
 }

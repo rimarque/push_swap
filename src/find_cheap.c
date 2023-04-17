@@ -5,7 +5,7 @@ node *find_cheap(list stack_a, list stack_b)
     node *result;
     node *element;
     int n_op;
-    int small_n_op;
+    int small_n_op = 0;
     int counter;
 
     element = stack_a.first;
@@ -13,21 +13,21 @@ node *find_cheap(list stack_a, list stack_b)
     while(counter++ < stack_a.size)
     {
         n_op = count_op(element, stack_a.size, stack_b);
-        printf("n_op:%d\n", n_op);
-        if (n_op == 0)                                       // A INES FEZ COM <=2
+        //printf("n_op:%d\n", n_op);
+        if (n_op == 0)                                       
         {
-            printf("entra aqui\n");
+            //printf("entra aqui\n");
             result = element;
             break;
         }
-        if (n_op < small_n_op)
+        if (n_op < small_n_op || small_n_op == 0)
         {
             small_n_op = n_op;
             result = element;
         }
         element = element->next;
     }
-    printf("small_n_op:%d\n", small_n_op);
+    //printf("small_n_op:%d\n", small_n_op);
     return(result);
 }
 
@@ -129,15 +129,15 @@ int count_op_b(int nbr, list stack, int *flag) //CHECK
 
     if (is_big(nbr, stack) || is_small(nbr, stack)) 
     {
-        printf("is small or big\n");
+        //printf("is small or big\n");
         biggest = find_biggest(stack);
-        printf("biggest:%d\n", biggest->val);    
+        //printf("biggest:%d\n", biggest->val);    
         n_op_b = count_r(biggest, stack.size, flag);
     }
     else
     {
         next_smallest = find_next_smallest(nbr, stack);
-        printf("next_smallest:%d\n", next_smallest->val);
+        //printf("next_smallest:%d\n", next_smallest->val);
         n_op_b = count_r(next_smallest, stack.size, flag);
     }
     return(n_op_b);
@@ -155,19 +155,19 @@ int count_op(node *element, int size, list stack)
     flag_a = 0;
     flag_b = 0;
 
-    printf("START\nNBR:%d\n", element->val);
+    //printf("START\nNBR:%d\n", element->val);
     n_op_a = count_r(element, size, &flag_a);
     element->nop_a = n_op_a;
     element->flag_a = flag_a;
-    printf("n_op_a:%d, flag:%d\n", n_op_a, flag_a);
+    //printf("n_op_a:%d, flag:%d\n", n_op_a, flag_a);
     n_op_b = count_op_b(element->val, stack, &flag_b);
     element->nop_b = n_op_b;
     element->flag_b = flag_b;
-    printf("n_op_b:%d, flag:%d\n", n_op_b, flag_b);
+    //printf("n_op_b:%d, flag:%d\n", n_op_b, flag_b);
 
     if (flag_a == flag_b) //SE FIZER ZERO OPERACOES A FLAG FICA = 0 - ATENCAO !!!!
     {
-        ft_printf("flag_a == a flag_b\n");
+        //ft_printf("flag_a == a flag_b\n");
         if (n_op_a > n_op_b)
         {
             dif = n_op_a - n_op_b;
@@ -181,6 +181,6 @@ int count_op(node *element, int size, list stack)
     }
     else                                        //SE FOREM DIFERENTES VER OUTRAS OPCOES
         result = n_op_a + n_op_b;
-    ft_printf("RESULT:%d\n", result);
+    //ft_printf("RESULT:%d\n", result);
     return (result);
 }
