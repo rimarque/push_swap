@@ -43,9 +43,10 @@ void	shift_index(list *stack);
 void	free_stack(list *stack);
 
 //check_error
-void	ft_isnbr(const char *str);
-void 	ft_isint(long long nbr);
+void	ft_isnbr(const char *str, list	*stack);
+void 	ft_isint(long long nbr, list	*stack);
 void	ft_isdouble(list	*stack);
+void	ft_issorted(list	*stack);
 
 //ops
 void    swap(list *stack, char c);

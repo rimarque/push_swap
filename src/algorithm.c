@@ -12,9 +12,10 @@ void algorithm(list *stack_a, list *stack_b)
     if (stack_a->size > 3)
     {
         push(stack_b, 'b', stack_a);
-        push(stack_b, 'b', stack_a);
+        if (stack_a->size > 4)
+            push(stack_b, 'b', stack_a);
     }
-    print_val_index(*stack_a, *stack_b);
+    //print_val_index(*stack_a, *stack_b);
     //element_a = find_cheap(*stack_a, *stack_b);
     //printf("element_a_val:%d\nelement_a->flag_a:%d, flag:%d\nelement_a->flag_b:%d, flag:%d\n", element_a->val, element_a->nop_a, element_a->flag_a, element_a->nop_b, element_a->flag_b);
 

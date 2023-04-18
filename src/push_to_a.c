@@ -42,7 +42,7 @@ void rotate_a(int nbr, list *stack) //nbr de b, stack_a
     int counter;
     int nop_a;
 
-    printf("NBR:%d\n", nbr); 
+    //printf("NBR:%d\n", nbr); 
     if (is_big(nbr, *stack) || is_small(nbr, *stack)) 
     {
         //printf("is small or big\n");

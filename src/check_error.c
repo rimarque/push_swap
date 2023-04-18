@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	ft_isnbr(const char *str)
+void	ft_isnbr(const char *str, list *stack)
 {
 	if (*str == '-' || *str == '+')
 			str++;
@@ -20,6 +20,7 @@ void	ft_isnbr(const char *str)
 	{
 		if (*str < '0' || *str > '9')
 		{
+			free_stack(stack);
 			ft_printf("Error\n");
         	exit(0);
         }
@@ -27,10 +28,11 @@ void	ft_isnbr(const char *str)
 	}
 }
 
-void	ft_isint(long long nbr)
+void	ft_isint(long long nbr, list *stack)
 {
     if (nbr > 2147483647 || nbr < -2147483648 )
     {
+		free_stack(stack);
 		ft_printf("Error\n");
         exit(0);
     }
@@ -60,4 +62,22 @@ void	ft_isdouble(list	*stack)
 			}
 			element_a = element_a->next;
 		}
+}
+
+void	ft_issorted(list	*stack)
+{
+		node	*element_a;
+		node	*element_b;
+
+		element_a = stack->first;
+		element_b = element_a->next;
+		while(element_b != stack->first)
+		{
+			if(element_a->val > element_b->val)
+				return ;
+			element_a = element_a->next;
+			element_b = element_a->next;
+		}
+		free_stack(stack);
+        exit(0);
 }

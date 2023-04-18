@@ -131,7 +131,7 @@ int count_op_b(int nbr, list stack, int *flag) //CHECK
     {
         //printf("is small or big\n");
         biggest = find_biggest(stack);
-        //printf("biggest:%d\n", biggest->val);    
+        //printf("biggest:%d\n", biggest->val);
         n_op_b = count_r(biggest, stack.size, flag);
     }
     else

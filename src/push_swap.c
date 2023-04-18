@@ -102,7 +102,7 @@ int main(int argc, char **argv)
     int  i;
     //int counter = 0;
 
-    if(argc == 1)
+    if(argc <= 2)
         return(0);
     create_list(&stack_a);
     create_list(&stack_b);
@@ -111,12 +111,13 @@ int main(int argc, char **argv)
     i = 1;
     while(i < argc)
     {
-        ft_isnbr(argv[i]);
-        ft_isint(ft_atoi(argv[i]));
+        ft_isnbr(argv[i], &stack_a);
+        ft_isint(ft_atoi(argv[i]), &stack_a);
         insert_last(&stack_a, ft_atoi(argv[i]));
         i++;
     }
     ft_isdouble(&stack_a);
+    ft_issorted(&stack_a);
     algorithm(&stack_a, &stack_b);
     //rotate(&stack_a, 'a');
     //rotate_rev_rr(&stack_a, &stack_b);
@@ -136,7 +137,7 @@ int main(int argc, char **argv)
     //print_list_val(stack_b, 'b');
     //print_list_index(stack_a, 'a');
     //print_list_index(stack_b, 'b');
-    print_val_index(stack_a, stack_b);
+    //print_val_index(stack_a, stack_b);
     free_stack(&stack_a);
     free_stack(&stack_b);
 }
