@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:49:34 by rimarque          #+#    #+#             */
-/*   Updated: 2023/03/13 13:53:30 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:23:49 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,67 +18,70 @@
 
 typedef struct node
 {
-	struct node *prev;
-	int val;
-	int index;
-	int nop_a;
-	int nop_b;
-	int flag_a;
-	int flag_b;
-	struct node *next;
-}node;
+	struct node		*prev;
+	int				val;
+	int				index;
+	int				nop_a;
+	int				nop_b;
+	int				flag_a;
+	int				flag_b;
+	struct node		*next;
+}t_node;
 
-typedef struct
+typedef struct t_list
 {
-	node *first;
-	int size;
-}list;
+	struct node	*first;
+	int			size;
+}t_list;
 
 //list
-void    create_list(list *stack);
-void    insert_last(list *stack, int nbr);
-void    insert_first(list *stack, node *new);
-node    *remove_first(list *stack);
-void	shift_index(list *stack);
-void	free_stack(list *stack);
+void		shift_index(struct t_list *stack);
+void		put_first_node(struct t_list *stack, struct node *new);
+struct node	*remove_first(struct t_list *stack);
+void		insert_first(struct t_list *stack, struct node *new);
+void		free_stack(struct t_list *stack);
 
 //check_error
-void	ft_isnbr(const char *str, list	*stack);
-void 	ft_isint(long long nbr, list	*stack);
-void	ft_isdouble(list	*stack);
-void	ft_issorted(list	*stack);
+void		ft_isnbr(const char *str, struct t_list *stack);
+void		ft_isint(long long nbr, struct t_list *stack);
+void		ft_isdouble(struct t_list *stack);
 
-//ops
-void    swap(list *stack, char c);
-void    swap_ss(list *stack_a, list *stack_b);
-void	push(list *stack_push, char c, list *stack_rem);
-void    rotate(list *stack, char c);
-void    rotate_rr(list *stack_a, list *stack_b);
-void    rotate_rev(list *stack, char c);
-void    rotate_rev_rr(list *stack_a, list *stack_b);
+//OPS
+//push
+void		push(struct t_list *stack_push, char c, struct t_list *stack_rem);
+//rotate
+void		rotate(struct t_list *stack, char c);
+void		rotate_rr(struct t_list *stack_a, struct t_list *stack_b);
+void		rotate_rev(struct t_list *stack, char c);
+void		rotate_rev_rr(struct t_list *stack_a, struct t_list *stack_b);
+//swap
+void		swap(struct t_list *stack, char c);
+void		swap_ss(struct t_list *stack_a, struct t_list *stack_b);
 
-//sort
-void 	sort3(list *stack);
-
-//find_cheap
-node *find_cheap(list stack_a, list stack_b);
-int is_big(int nbr, list stack);
-int is_small(int nbr, list stack);
-node *find_biggest(list stack);
-node *find_next_smallest(int nbr, list stack);
-int count_r(node *element, int size, int *flag);
-int count_op_b(int nbr, list stack, int *flag);
-int count_op(node *element, int size, list stack);
-
+//ALGORITHM
 //algorithm
-void algorithm(list *stack_a, list *stack_b);
+void		algorithm(struct t_list *stack_a, struct t_list *stack_b);
+//sort3
+void		sort3(struct t_list *stack);
+//costs
+struct node	*find_cheap(struct t_list stack_a, struct t_list stack_b);
+int			count_op(struct node *element, int size, struct t_list stack);
+//aux
+int			count_r(struct node *element, int size, int *flag);
+int			is_big(int nbr, struct t_list stack);
+int			is_small(int nbr, struct t_list stack);
+//aux_find
+struct node	*find_biggest(struct t_list stack);
+struct node	*find_next_smallest(int nbr, struct t_list stack);
+struct node	*find_smallest(struct t_list stack);
+struct node	*find_next_biggest(int nbr, struct t_list stack);
+//aux_move
+void		rotate_stack(struct t_list *stack, char c, int nop, int flag);
+void		rotate_both(struct t_list *stack_a,
+				struct t_list *stack_b, int nop, int flag);
+void		move_to_b(struct node *element,
+				struct t_list *stack_a, struct t_list *stack_b);
+void		rotate_a(int nbr, struct t_list *stack);
+void		move_to_a(struct t_list *stack_a, struct t_list *stack_b, int size);
 
-//push_to_a
-node *find_next_biggest(int nbr, list stack);
-node *find_smallest(list stack);
-void rotate_a(int nbr, list *stack);
-void final_rotation(list *stack);
-
-//AUX
-void    print_val_index(list stack_a, list stack_b);
 #endif

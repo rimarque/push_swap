@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:12:17 by rimarque          #+#    #+#             */
-/*   Updated: 2023/03/30 22:12:19 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:02:29 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	swap(list *stack, char c)
+void	swap(t_list *stack, char c)
 {
 	int	temp;
 
-	if (stack->first == NULL || stack->first == stack->first->next)
+	if (stack->size <= 1)
 		return ;
 	temp = stack->first->val;
 	stack->first->val = stack->first->next->val;
@@ -27,7 +27,7 @@ void	swap(list *stack, char c)
 		ft_printf("sb\n");
 }
 
-void	swap_ss(list *stack_a, list *stack_b)
+void	swap_ss(t_list *stack_a, t_list *stack_b)
 {
 	swap(stack_a, 's');
 	swap(stack_b, 's');
