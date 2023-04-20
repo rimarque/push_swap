@@ -1,24 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 22:07:01 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/20 13:02:27 by rimarque         ###   ########.fr       */
+/*   Created: 2022/11/25 15:58:27 by rimarque          #+#    #+#             */
+/*   Updated: 2023/04/19 21:17:28 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/libft.h"
 
-void	push(t_list *dst, char c, t_list *src)
+long long	ft_atoi(const char *str)
 {
-	if (src->first == NULL)
-		return ;
-	insert_first(dst, remove_first(src));
-	if (c == 'a')
-		ft_printf("pa\n");
-	else if (c == 'b')
-		ft_printf("pb\n");
+	int			i;
+	int			sign;
+	long long	nbr;
+
+	i = 0;
+	sign = 1;
+	nbr = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+	{
+		i++;
+	}
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nbr = nbr * 10 + (str[i] - 48);
+		i++;
+	}
+	nbr *= sign;
+	return (nbr);
 }

@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 22:07:01 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/20 13:02:27 by rimarque         ###   ########.fr       */
+/*   Created: 2022/11/21 18:49:33 by rimarque          #+#    #+#             */
+/*   Updated: 2023/04/20 11:33:00 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/libft.h"
 
-void	push(t_list *dst, char c, t_list *src)
+void	ft_bzero(void *str, size_t n)
 {
-	if (src->first == NULL)
-		return ;
-	insert_first(dst, remove_first(src));
-	if (c == 'a')
-		ft_printf("pa\n");
-	else if (c == 'b')
-		ft_printf("pb\n");
+	ft_memset(str, '\0', n);
 }
+
+/* #include <string.h>
+#include <stdio.h>
+int main()
+{
+    char    str[] = "the coconut nut is not a nut";
+    ft_bzero(str, 5);
+    printf("str is: %s\n", str);
+
+    char    test[] = "the coconut nut is not a nut";
+    bzero(test, 5);
+    printf("test is: %s\n", test);
+    return (0);
+} */

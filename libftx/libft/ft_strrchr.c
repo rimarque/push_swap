@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 22:07:01 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/20 13:02:27 by rimarque         ###   ########.fr       */
+/*   Created: 2022/11/24 15:38:56 by rimarque          #+#    #+#             */
+/*   Updated: 2023/04/20 11:35:20 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/libft.h"
 
-void	push(t_list *dst, char c, t_list *src)
+char	*ft_strrchr(const char *s, int c)
 {
-	if (src->first == NULL)
-		return ;
-	insert_first(dst, remove_first(src));
-	if (c == 'a')
-		ft_printf("pa\n");
-	else if (c == 'b')
-		ft_printf("pb\n");
+	size_t	s_len;
+
+	s_len = ft_strlen(s) + 1;
+	while (s_len--)
+		if (s[s_len] == (unsigned char)c)
+			return ((char *)s + s_len);
+	return (NULL);
 }
+
+/*int	main()
+{
+	char c = '\0';
+
+	printf("%s\n", ft_strrchr("rita", c));
+	return (0);
+}*/

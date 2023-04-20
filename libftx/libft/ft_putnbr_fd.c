@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 22:07:01 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/20 13:02:27 by rimarque         ###   ########.fr       */
+/*   Created: 2022/12/03 15:02:58 by rimarque          #+#    #+#             */
+/*   Updated: 2023/04/20 11:34:18 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/libft.h"
 
-void	push(t_list *dst, char c, t_list *src)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (src->first == NULL)
-		return ;
-	insert_first(dst, remove_first(src));
-	if (c == 'a')
-		ft_printf("pa\n");
-	else if (c == 'b')
-		ft_printf("pb\n");
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else
+	{
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			n = -n;
+		}
+		if (n > 9)
+			ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd((n % 10) + 48, fd);
+	}
 }
+
+/*int	main()
+{
+	ft_putnbr_fd(5, 1);
+	return (0);
+}*/

@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 22:07:01 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/20 13:02:27 by rimarque         ###   ########.fr       */
+/*   Created: 2022/11/24 14:19:01 by rimarque          #+#    #+#             */
+/*   Updated: 2023/04/20 11:35:38 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/libft.h"
 
-void	push(t_list *dst, char c, t_list *src)
+int	ft_tolower(int c)
 {
-	if (src->first == NULL)
-		return ;
-	insert_first(dst, remove_first(src));
-	if (c == 'a')
-		ft_printf("pa\n");
-	else if (c == 'b')
-		ft_printf("pb\n");
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	return (c);
 }

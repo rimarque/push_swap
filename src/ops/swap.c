@@ -6,11 +6,11 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:12:17 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/19 18:02:29 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/20 19:16:16 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	swap(t_list *stack, char c)
 {
@@ -27,9 +27,10 @@ void	swap(t_list *stack, char c)
 		ft_printf("sb\n");
 }
 
-void	swap_ss(t_list *stack_a, t_list *stack_b)
+void	swap_ss(t_list *stack_a, t_list *stack_b, int flag)
 {
 	swap(stack_a, 's');
 	swap(stack_b, 's');
-	ft_printf("ss\n");
+	if (!flag)
+		ft_printf("ss\n");
 }

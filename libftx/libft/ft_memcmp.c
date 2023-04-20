@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 22:07:01 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/20 13:02:27 by rimarque         ###   ########.fr       */
+/*   Created: 2022/11/25 12:12:30 by rimarque          #+#    #+#             */
+/*   Updated: 2023/04/20 11:33:50 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/libft.h"
 
-void	push(t_list *dst, char c, t_list *src)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (src->first == NULL)
-		return ;
-	insert_first(dst, remove_first(src));
-	if (c == 'a')
-		ft_printf("pa\n");
-	else if (c == 'b')
-		ft_printf("pb\n");
+	size_t		i;
+	const char	*cc_s1;
+	const char	*cc_s2;
+
+	cc_s1 = s1;
+	cc_s2 = s2;
+	i = 0;
+	while (i < n)
+	{
+		if (cc_s1[i] != cc_s2[i])
+			return ((unsigned char)cc_s1[i] - (unsigned char)cc_s2[i]);
+		i++;
+	}
+	return (0);
 }
