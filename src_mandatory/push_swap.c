@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:49:19 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/20 14:54:16 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/21 20:59:49 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,14 @@ int	main(int argc, char **argv)
 	t_list	stack_b;
 	int		i;
 
-	if (argc <= 2)
-		return (0);
 	create_stack(&stack_a);
 	create_stack(&stack_b);
+	if (argc <= 2)
+	{
+		if (argc == 2)
+			check_errors(argv[1], &stack_a);
+		return (0);
+	}
 	i = 1;
 	while (i < argc)
 	{

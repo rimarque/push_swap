@@ -6,14 +6,15 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:10:01 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/21 17:39:46 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/21 20:55:12 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_error_bonus(t_list *stack_a, t_list *stack_b)
+void	ft_error_bonus(char *str, t_list *stack_a, t_list *stack_b)
 {
+	free(str);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	ft_printf("Error\n");
@@ -44,7 +45,7 @@ int	sort(t_list *stack_a, t_list *stack_b)
 	{
 		str = get_next_line(STDIN_FILENO);
 		if (str == NULL)
-			break;
+			break ;
 		do_ops(str, stack_a, stack_b);
 		free(str);
 		nop++;
@@ -52,7 +53,7 @@ int	sort(t_list *stack_a, t_list *stack_b)
 	return (nop);
 }
 
-void do_ops(char *str, t_list *stack_a, t_list *stack_b)
+void	do_ops(char *str, t_list *stack_a, t_list *stack_b)
 {
 	if (!ft_strcmp(str, "pa\n"))
 		push(stack_a, 'c', stack_b);
@@ -77,18 +78,17 @@ void do_ops(char *str, t_list *stack_a, t_list *stack_b)
 	else if (!ft_strcmp(str, "ss\n"))
 		swap_ss(stack_a, stack_b, 1);
 	else
-		ft_error_bonus(stack_a, stack_b);
+		ft_error_bonus(str, stack_a, stack_b);
 }
 
-int check_ops(char *str)
+int	check_ops(char *str)
 {
 	if (!ft_strcmp(str, "pa\n") || !ft_strcmp(str, "pb\n")
 		|| !ft_strcmp(str, "ra\n") || !ft_strcmp(str, "rb\n")
-			|| !ft_strcmp(str, "rr\n") || !ft_strcmp(str, "rra\n")
-				|| !ft_strcmp(str, "rrb\n") || !ft_strcmp(str, "rrr\n")
-					|| !ft_strcmp(str, "sa\n") || !ft_strcmp(str, "sb\n")
-						|| !ft_strcmp(str, "ss\n"))
-							return (1);
+		|| !ft_strcmp(str, "rr\n") || !ft_strcmp(str, "rra\n")
+		|| !ft_strcmp(str, "rrb\n") || !ft_strcmp(str, "rrr\n")
+		|| !ft_strcmp(str, "sa\n") || !ft_strcmp(str, "sb\n")
+		|| !ft_strcmp(str, "ss\n"))
+		return (1);
 	return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:49:34 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/21 17:29:18 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/21 21:09:58 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,22 @@ void			ft_error(t_list *stack);
 void			ft_isnbr(const char *str, struct t_list *stack);
 void			ft_isint(long long nbr, struct t_list *stack);
 void			ft_isdouble(struct t_list *stack);
+void			check_errors(char *str, t_list *stack);
 
 //OPS
 //push
 void			push(struct t_list *dst, char c, struct t_list *src);
 //rotate
 void			rotate(struct t_list *stack, char c);
-void			rotate_rr(struct t_list *stack_a, struct t_list *stack_b, int flag);
+void			rotate_rr(struct t_list *stack_a,
+					struct t_list *stack_b, int flag);
 void			rotate_rev(struct t_list *stack, char c);
-void			rotate_rev_rr(struct t_list *stack_a, struct t_list *stack_b, int flag);
+void			rotate_rev_rr(struct t_list *stack_a,
+					struct t_list *stack_b, int flag);
 //swap
 void			swap(struct t_list *stack, char c);
-void			swap_ss(struct t_list *stack_a, struct t_list *stack_b, int flag);
+void			swap_ss(struct t_list *stack_a,
+					struct t_list *stack_b, int flag);
 
 //ALGORITHM
 //algorithm
@@ -93,8 +97,9 @@ void			move_to_a(struct t_list *stack_a, struct t_list *stack_b);
 //BONUS
 //sort
 int				ft_strcmp(const char *s1, const char *s2);
-void 			do_ops(char *str, struct t_list *stack_a, struct t_list *stack_b);
+void			do_ops(char *str, struct t_list *stack_a,
+					struct t_list *stack_b);
 int				sort(struct t_list *stack_a, struct t_list *stack_b);
 int				check_ops(char *str);
-void			ft_error_bonus(t_list *stack_a, t_list *stack_b);
+void			ft_error_bonus(char *str, t_list *stack_a, t_list *stack_b);
 #endif

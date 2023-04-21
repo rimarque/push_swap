@@ -6,58 +6,45 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:49:19 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/21 17:46:52 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/21 20:56:23 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void    print_val_index(t_list stack_a, t_list stack_b)
+char	*check_first_call(t_list *stack_a, t_list *stack_b)
 {
-    t_node    *element_a = stack_a.first;
-    t_node    *element_b = stack_b.first;
+	char	*str;
 
-    int counter = 0;
-    ft_printf("size of stack_a: %d\nsize of stack_b: %d\n", stack_a.size, stack_b.size);
-    ft_printf("STACK A        STACK B\n");
-    if(element_a || element_b)
-    {
-        while(counter < stack_a.size || counter < stack_b.size)
-        {
-            //printf("counter:%d\n", counter);
-            if (counter >= stack_b.size || stack_b.first == NULL)
-                printf("%d (%d)\n", element_a->val, element_a->index);
-            else if (counter >= stack_a.size || stack_a.first == NULL)
-                printf("               %d (%d)\n", element_b->val, element_b->index);
-            else
-                printf("%d (%d)         %d (%d)\n", element_a->val, element_a->index, element_b->val, element_b->index);
-            if (stack_a.first != NULL)
-                element_a = element_a->next;
-            if (stack_b.first != NULL)
-                element_b = element_b->next;
-            counter++;
-        }
-    }
+	str = get_next_line(STDIN_FILENO);
+	if (str == NULL)
+	{
+		ft_printf("OK\n");
+		free_stack(stack_a);
+		free_stack(stack_b);
+		exit(0);
+	}
+	if (!check_ops(str))
+		ft_error_bonus(str, stack_a, stack_b);
+	return (str);
 }
 
 void	does_nothing(t_list *stack_a, t_list *stack_b)
 {
 	char	*str;
 
+	str = check_first_call(stack_a, stack_b);
 	while (1)
 	{
+		if (str)
+			free(str);
 		str = get_next_line(STDIN_FILENO);
 		if (str == NULL)
-		{
-			ft_printf("OK\n");
-			exit(0);
-		}
+			break ;
 		if (!check_ops(str))
-		{
-			free(str);
-			ft_error_bonus(stack_a, stack_b);
-		}
-		free (str);
+			ft_error_bonus(str, stack_a, stack_b);
+		free(str);
+		str = NULL;
 	}
 	ft_printf("KO\n");
 	free_stack(stack_a);
@@ -82,27 +69,36 @@ int	ft_issorted_bonus(t_list *stack)
 	return (1);
 }
 
+void	insert_stack_a(t_list *stack, int argc, char **argv)
+{
+	int		i;
+
+	i = 1;
+	while (i < argc)
+	{
+		ft_isnbr(argv[i], stack);
+		ft_isint(ft_atoi(argv[i]), stack);
+		insert_last(stack, ft_atoi(argv[i]));
+		i++;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	stack_a;
 	t_list	stack_b;
-	int		i;
 	int		nop;
 
 	if (argc == 1)
 		return (0);
 	create_stack(&stack_a);
 	create_stack(&stack_b);
-	i = 1;
-	while (i < argc)
-	{
-		ft_isnbr(argv[i], &stack_a);
-		ft_isint(ft_atoi(argv[i]), &stack_a);
-		insert_last(&stack_a, ft_atoi(argv[i]));
-		i++;
-	}
+	insert_stack_a(&stack_a, argc, argv);
 	if (argc == 2)
+	{
+		check_errors(argv[1], &stack_a);
 		does_nothing(&stack_a, &stack_b);
+	}
 	ft_isdouble(&stack_a);
 	if (ft_issorted_bonus(&stack_a))
 		does_nothing(&stack_a, &stack_b);
@@ -111,7 +107,6 @@ int	main(int argc, char **argv)
 		ft_printf("OK (%d operations executed)\n", nop);
 	else
 		ft_printf("KO\n");
-	//print_val_index(stack_a, stack_b);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 }

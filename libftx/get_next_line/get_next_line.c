@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 21:54:29 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/21 15:51:02 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/21 18:57:46 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ char	*read_to_line(int fd, char **to_read, char *line)
 		bytes = read(fd, *to_read, BUFFER_SIZE);
 		if (bytes <= 0)
 		{
-				free(*to_read);
-				*to_read = NULL;
+			free(*to_read);
+			*to_read = NULL;
 		}
 		if (bytes < 0 && *line)
 			free(line);
@@ -84,7 +84,7 @@ char	*read_to_line(int fd, char **to_read, char *line)
 char	*get_next_line(int fd)
 {
 	static char		*to_read;
-	char		*line;
+	char			*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
