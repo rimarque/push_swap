@@ -1,16 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   aux_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:10:01 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/21 12:12:53 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/21 17:39:46 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	ft_error_bonus(t_list *stack_a, t_list *stack_b)
+{
+	free_stack(stack_a);
+	free_stack(stack_b);
+	ft_printf("Error\n");
+	exit(0);
+}
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
@@ -38,8 +46,7 @@ int	sort(t_list *stack_a, t_list *stack_b)
 		if (str == NULL)
 			break;
 		do_ops(str, stack_a, stack_b);
-		if (str)
-			free(str);
+		free(str);
 		nop++;
 	}
 	return (nop);
@@ -61,7 +68,7 @@ void do_ops(char *str, t_list *stack_a, t_list *stack_b)
 		rotate_rev(stack_a, 'c');
 	else if (!ft_strcmp(str, "rrb\n"))
 		rotate_rev(stack_b, 'c');
-	else if (!ft_strcmp(str, "rrb\n"))
+	else if (!ft_strcmp(str, "rrr\n"))
 		rotate_rev_rr(stack_a, stack_b, 1);
 	else if (!ft_strcmp(str, "sa\n"))
 		swap(stack_a, 'c');
@@ -69,4 +76,19 @@ void do_ops(char *str, t_list *stack_a, t_list *stack_b)
 		swap(stack_b, 'c');
 	else if (!ft_strcmp(str, "ss\n"))
 		swap_ss(stack_a, stack_b, 1);
+	else
+		ft_error_bonus(stack_a, stack_b);
 }
+
+int check_ops(char *str)
+{
+	if (!ft_strcmp(str, "pa\n") || !ft_strcmp(str, "pb\n")
+		|| !ft_strcmp(str, "ra\n") || !ft_strcmp(str, "rb\n")
+			|| !ft_strcmp(str, "rr\n") || !ft_strcmp(str, "rra\n")
+				|| !ft_strcmp(str, "rrb\n") || !ft_strcmp(str, "rrr\n")
+					|| !ft_strcmp(str, "sa\n") || !ft_strcmp(str, "sb\n")
+						|| !ft_strcmp(str, "ss\n"))
+							return (1);
+	return (0);
+}
+

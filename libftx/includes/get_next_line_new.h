@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_cs.c                                      :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 12:12:10 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/20 11:32:33 by rimarque         ###   ########.fr       */
+/*   Created: 2023/01/26 15:49:10 by rimarque          #+#    #+#             */
+/*   Updated: 2023/04/21 12:12:23 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	ft_put_c(char c)
-{
-	write(1, &c, 1);
-	return (1);
-}
+# include <unistd.h>
+# include <stdlib.h>
 
-int	pft_strlen(const char *str)
-{
-	int	i;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10 
+# endif
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+char	*get_next_line(int fd);
+size_t	ft_strlen(const char *str);
+char	*ft_alt_strjoin(char *s1, char *s2);
+char	*ft_alt_strdup(char *s2, const char *string, size_t size);
+void	*ft_calloc(size_t nitems, size_t size);
 
-int	ft_put_s(char *s)
-{
-	if (!s)
-		return (write(1, "(null)", 6));
-	return (write(1, s, pft_strlen(s)));
-}
+#endif 
+

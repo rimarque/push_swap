@@ -6,7 +6,7 @@
 #    By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 13:48:58 by rimarque          #+#    #+#              #
-#    Updated: 2023/04/20 16:13:44 by rimarque         ###   ########.fr        #
+#    Updated: 2023/04/21 17:30:34 by rimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ OBJ_MAND = src_mandatory/push_swap.o \
 	src_mandatory/aux_move.o
 
 OBJ_BONUS = src_bonus/checker.o \
-			src_bonus/sort.o
+			src_bonus/aux_checker.o
 
 all: $(NAME)
 

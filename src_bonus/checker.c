@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:49:19 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/21 12:12:50 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/21 17:46:52 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,28 @@ void    print_val_index(t_list stack_a, t_list stack_b)
     }
 }
 
-void	does_nothing(t_list *stack)
+void	does_nothing(t_list *stack_a, t_list *stack_b)
 {
 	char	*str;
 
-	str = get_next_line(STDIN_FILENO);
-	if (str == NULL)
-			ft_printf("OK\n");
-	else
+	while (1)
 	{
+		str = get_next_line(STDIN_FILENO);
+		if (str == NULL)
+		{
+			ft_printf("OK\n");
+			exit(0);
+		}
+		if (!check_ops(str))
+		{
+			free(str);
+			ft_error_bonus(stack_a, stack_b);
+		}
 		free (str);
-		ft_printf("KO\n");
 	}
-	if (stack->first != NULL)
-		free_stack(stack);
+	ft_printf("KO\n");
+	free_stack(stack_a);
+	free_stack(stack_b);
 	exit (0);
 }
 
@@ -94,10 +102,10 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	if (argc == 2)
-		does_nothing(&stack_a);
+		does_nothing(&stack_a, &stack_b);
 	ft_isdouble(&stack_a);
 	if (ft_issorted_bonus(&stack_a))
-		does_nothing(&stack_a);
+		does_nothing(&stack_a, &stack_b);
 	nop = sort(&stack_a, &stack_b);
 	if (ft_issorted_bonus(&stack_a) && stack_b.size == 0)
 		ft_printf("OK (%d operations executed)\n", nop);

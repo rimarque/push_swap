@@ -6,7 +6,7 @@
 #    By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 14:39:30 by rimarque          #+#    #+#              #
-#    Updated: 2023/04/20 16:46:27 by rimarque         ###   ########.fr        #
+#    Updated: 2023/04/21 13:29:48 by rimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ SRC =  libft/ft_bzero.c \
            libft/ft_isdigit.c \
            libft/ft_isprint.c \
            libft/ft_memset.c \
-           libft/ft_strlen.c \
            libft/ft_memcpy.c \
            libft/ft_memmove.c \
            libft/ft_strlcpy.c \

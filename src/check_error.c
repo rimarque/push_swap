@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:06:44 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/20 21:12:51 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/21 17:28:26 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ void	ft_error(t_list *stack)
 void	ft_isnbr(const char *str, t_list *stack)
 {
 	if (*str == '-' || *str == '+')
-	{
 		str++;
-	}
 	if(*str == '\0')
 		ft_error(stack);
 	while (*str)
