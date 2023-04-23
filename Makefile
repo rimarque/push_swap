@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: rimarque <rimarque>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 13:48:58 by rimarque          #+#    #+#              #
-#    Updated: 2023/04/23 12:17:48 by marvin           ###   ########.fr        #
+#    Updated: 2023/04/23 18:03:51 by rimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -g
 
-OBJ = src/create_stack.o \
+OBJ = src/aux_main.o \
 	src/aux_stack.o \
 	src/check_error.o \
 	src/ops/push.o \

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:49:34 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/23 10:22:23 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/23 17:52:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,13 @@ typedef struct t_list
 	int				size;
 }t_list;
 
-//create_stack
+//aux_main
 void			create_stack(t_list *stack);
 void			insert_last(t_list *stack, int nbr);
+void			insert_stack_a(t_list *stack, int argc, char **argv);
+int				ft_issorted(t_list *stack);
 
-//stack
+//aux_stack
 void			shift_index(struct t_list *stack);
 void			put_first_node(struct t_list *stack, struct t_node *new);
 struct t_node	*remove_first(struct t_list *stack);
@@ -95,12 +97,11 @@ void			rotate_a(int nbr, struct t_list *stack);
 void			move_to_a(struct t_list *stack_a, struct t_list *stack_b);
 
 //BONUS
-//sort
+//aux_checker
+void			ft_error_bonus(char *str, t_list *stack_a, t_list *stack_b);
 int				ft_strcmp(const char *s1, const char *s2);
+int				sort(struct t_list *stack_a, struct t_list *stack_b);
 void			do_ops(char *str, struct t_list *stack_a,
 					struct t_list *stack_b);
-int				sort(struct t_list *stack_a, struct t_list *stack_b);
 int				check_ops(char *str);
-void			ft_error_bonus(char *str, t_list *stack_a, t_list *stack_b);
-void			free_str(char	**str);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rimarque <rimarque>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:06:44 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/23 12:33:04 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/23 18:00:21 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,3 @@ void	ft_isdouble(t_list	*stack)
 		element_a = element_a->next;
 	}
 }
-
