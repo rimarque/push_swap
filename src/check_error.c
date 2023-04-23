@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:06:44 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/21 21:09:43 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/23 12:33:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,3 @@ void	ft_isdouble(t_list	*stack)
 	}
 }
 
-void	check_errors(char *str, t_list *stack)
-{
-	ft_isnbr(str, stack);
-	ft_isint(ft_atoi(str), stack);
-}

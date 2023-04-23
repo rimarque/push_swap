@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:49:19 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/23 10:36:10 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/23 12:32:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,7 @@ int	main(int argc, char **argv)
 	create_stack(&stack_b);
 	insert_stack_a(&stack_a, argc, argv);
 	if (argc == 2)
-	{
-		check_errors(argv[1], &stack_a);
 		does_nothing(&stack_a, &stack_b);
-	}
 	ft_isdouble(&stack_a);
 	if (ft_issorted_bonus(&stack_a))
 		does_nothing(&stack_a, &stack_b);
