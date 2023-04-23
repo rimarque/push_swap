@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   aux_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:10:01 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/21 20:55:12 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/23 10:36:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error_bonus(char *str, t_list *stack_a, t_list *stack_b)
 {
-	free(str);
+	ft_free(&str);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	ft_printf("Error\n");
@@ -47,7 +47,7 @@ int	sort(t_list *stack_a, t_list *stack_b)
 		if (str == NULL)
 			break ;
 		do_ops(str, stack_a, stack_b);
-		free(str);
+		ft_free(&str);
 		nop++;
 	}
 	return (nop);

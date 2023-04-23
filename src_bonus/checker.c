@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:49:19 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/21 20:56:23 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/23 10:36:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,13 @@ void	does_nothing(t_list *stack_a, t_list *stack_b)
 	str = check_first_call(stack_a, stack_b);
 	while (1)
 	{
-		if (str)
-			free(str);
+		ft_free(&str);
 		str = get_next_line(STDIN_FILENO);
 		if (str == NULL)
 			break ;
 		if (!check_ops(str))
 			ft_error_bonus(str, stack_a, stack_b);
-		free(str);
-		str = NULL;
+		ft_free(&str);
 	}
 	ft_printf("KO\n");
 	free_stack(stack_a);

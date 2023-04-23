@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 14:39:30 by rimarque          #+#    #+#              #
-#    Updated: 2023/04/21 13:29:48 by rimarque         ###   ########.fr        #
+#    Updated: 2023/04/23 12:17:51 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ SRC =  libft/ft_bzero.c \
            libft/ft_putnbr_fd.c \
            libft/ft_itoa.c \
            libft/ft_split.c \
+           libft/ft_free.c \
 	   printf/ft_print_cs.c \
 	   printf/ft_print_iduxXp.c \
 	   printf/ft_printf.c \
@@ -53,7 +54,7 @@ NAME = libft.a
 
 CC = cc
 
-CFLAGS  = -Wall -Wextra -Werror
+CFLAGS  = -Wall -Wextra -Werror -g
 
 RM = rm -rf
 
@@ -75,4 +76,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonusre

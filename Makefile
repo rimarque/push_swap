@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 13:48:58 by rimarque          #+#    #+#              #
-#    Updated: 2023/04/21 17:30:34 by rimarque         ###   ########.fr        #
+#    Updated: 2023/04/23 12:17:48 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBFT = ./libftx/libft.a
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 OBJ = src/create_stack.o \
 	src/aux_stack.o \
@@ -41,6 +41,7 @@ all: $(NAME)
 $(LIBFT):
 	echo "compiling..."
 	$(MAKE) -C ./libftx
+	echo "LIBFT created"
 
 $(NAME): $(OBJ_MAND) $(OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJ_MAND) $(OBJ) $(LIBFT) -o $(NAME)
@@ -64,6 +65,8 @@ fclean: clean
 	echo "All files CLEAN"
 
 re: fclean all
+
+bre: fclean bonus
 
 .SILENT:
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:49:34 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/21 21:09:58 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/23 10:22:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,5 @@ void			do_ops(char *str, struct t_list *stack_a,
 int				sort(struct t_list *stack_a, struct t_list *stack_b);
 int				check_ops(char *str);
 void			ft_error_bonus(char *str, t_list *stack_a, t_list *stack_b);
+void			free_str(char	**str);
 #endif
