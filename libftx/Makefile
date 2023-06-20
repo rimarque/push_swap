@@ -6,7 +6,7 @@
 #    By: rimarque <rimarque>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 14:39:30 by rimarque          #+#    #+#              #
-#    Updated: 2023/04/23 18:02:15 by rimarque         ###   ########.fr        #
+#    Updated: 2023/04/26 12:46:18 by rimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC =  libft/ft_bzero.c \
            libft/ft_itoa.c \
            libft/ft_split.c \
            libft/ft_free.c \
+	   libft/ft_strlen.c \
 	   printf/ft_print_cs.c \
 	   printf/ft_print_iduxXp.c \
 	   printf/ft_printf.c \

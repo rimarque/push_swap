@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 20:41:27 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/26 12:52:57 by rimarque         ###   ########.fr       */
+/*   Created: 2022/11/22 16:45:24 by rimarque          #+#    #+#             */
+/*   Updated: 2023/04/26 12:51:24 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
 	i = 0;
-	if (size > 0)
+	while (str[i] != '\0')
 	{
-		while (src[i] != 0 && i < size - 1)
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		i++;
 	}
-	return (ft_strlen(src));
+	return (i);
 }
+
+/*#include <stdio.h>
+int main()
+{
+    const char *str;
+
+    str = "rita";
+    printf("%s is: %u\n", str, ft_strlen(str));
+    str = "outlander; ";
+    printf("%s is: %u\n", str, ft_strlen(str));
+    str = "";
+    printf("%s is: %u\n", str, ft_strlen(str));
+    return (0);
+}*/

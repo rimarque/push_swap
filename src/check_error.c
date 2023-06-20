@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque>                        +#+  +:+       +#+        */
+/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:06:44 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/23 18:00:21 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/04/26 14:27:23 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	ft_error(t_list *stack)
 
 void	ft_isnbr(const char *str, t_list *stack)
 {
+	if (ft_strlen(str) > 11)
+		ft_error(stack);
 	if (*str == '-' || *str == '+')
 		str++;
 	if (*str == '\0')
