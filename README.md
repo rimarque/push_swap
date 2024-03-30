@@ -18,23 +18,24 @@ git clone git@github.com:rimarque/push_swap.git
 
 ## 💎 **Features**
 ```
-- Uses two stakcs: stack a and stack b
-- Stack a is the stack given as arguments, stack b is empty
-- Sorts the stack given as argument using a limited set of operations
-	- swap - swaps the 2 elements of the top of the stack
-	- push - pushes an element from the top of a stack to another
-	- rotate - the first element of the stack becomes the last one
-	- reverse rotate - the last element becomes the first one
+- With the help of stack b, push_swap sorts the stack given as argument (stack a), using a limited set of operations:
+	- swap: swaps the 2 elements of the top of the stack
+	- push: pushes an element from the top of a stack to another
+	- rotate: the first element of the stack becomes the last one
+	- reverse rotate: the last element becomes the first one
 - The instructions used to sort the stack are printed in the terminal
 	- sa (swap a), sb (swap b), ss (sa e sb at the same time)
 	- pa (push from b to a), pb (push from a to b)
 	- ra (rotate a), rb (rotate b), rr (ra e rb at the same time)
 	- rra (reverse rotate a), rrb (reverse rotate b), rrr (ra e rb at the same time)
-- My program uses circular double linked lists to implement the Turk Algorithm: https://medium.com/@ayogun/push-swap-c1f5d2d41e97
-- NUMERO DE OPERACOES
+- The program uses circular double linked lists to implement the Turk Algorithm: https://medium.com/@ayogun/push-swap-c1f5d2d41e97
+- The algothim sorts a stack of five numbers in 8 moves or less, a stack of 100 numbers in less than 700 moves and a stack of 500 values in less than 5500
 ```
 </tbody>
 	<td><image src="img/mandatory.png"></td>
+	<td><image src="img/5numbers.png"></td>
+	<td><image src="img/100numbers.png"></td>
+	<td><image src="img/500numbers.png"></td>
 </tbody>
 
 ## :link: **Compilation**
@@ -56,6 +57,8 @@ $ ./push_swap 7 -1 100 3 -30 8 49
 - Returns OK (number of operations performed) if the stack is sorted correctly
 - Returns KO if the stack isn't sorted
 ```
+<td><image src="img/checker_instructions.png"></td>
+<td><image src="img/checker_push_swap.png"></td>
 
 ## :link: **Compilation**
 To compile the program you should run `make bonus`.
@@ -71,21 +74,3 @@ Or, if you want to test your push_swap:
 ```sh
 $ ./push_swap 7 -1 100 3 -30 8 49 | ./checker 7 -1 100 3 -30 8 49
 ```
-
-## 🥇 **Testing**
-
-### Check if the instructions written in the terminal sort the stack
-
-```sh
-$ ./checker 3 2 1
-```
-The program will wait for you to write the instrutions in the terminal. When fineshed you should press Ctrl-D.
-The checker will then verify if the instructions given sort the arguments correctly.
-<td><image src="img/checker_instructions.png"></td>
-
-### You can use the checker to test your sorting algorithm
-
-```sh
-$ ./push_swap 7 -1 100 3 -30 8 49 | ./checker 7 -1 100 3 -30 8 49
-```
-<td><image src="img/checker_algorithm.png"></td>
