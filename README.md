@@ -18,52 +18,74 @@ git clone git@github.com:rimarque/FDF.git
 
 ## 💎 **Features**
 ```
-- Executes the commands provided as arguments usinge the execve() and fork() functions
-- Establishes a pipe between the commands using the pipe() function
-- Supports overwrite redirections:
-	- redirects input from the file specified as first argument
-	- redirects output to the file specified as last argument
-- Supports accurate exit codes and error messages
-- Supports the use of one pair of single quotes per command
+- Uses two stakcs: stack a and stack b
+- Stack a is the stack given as arguments, stack b is empty
+- Sorts the stack given as argument using a limited set of operations
+	- swap - swaps the 2 elements of the top of the stack
+	- push - pushes an element from the top of a stack to another
+	- rotate - the first element of the stack becomes the last one
+	- reverse rotate - the last element becomes the first one
+- The instructions used to sort the stack are printed in the terminal
+	- sa (swap a), sb (swap b), ss (sa e sb at the same time)
+	- pa (push from b to a), pb (push from a to b)
+	- ra (rotate a), rb (rotate b), rr (ra e rb at the same time)
+	- rra (reverse rotate a), rrb (reverse rotate b), rrr (ra e rb at the same time)
+- My program uses circular double linked lists to implement the Turk Algorithm: https://medium.com/@ayogun/push-swap-c1f5d2d41e97
+- NUMERO DE OPERACOES
 ```
 </tbody>
 	<td><image src="img/mandatory.png"></td>
-	<td><image src="img/single_quotes.png"></td>	
-	<td><image src="img/file_error.png"></td>
-	<td><image src="img/command_error.png"></td>
 </tbody>
 
 ## :link: **Compilation**
 To compile the program you should run `make`.
-This rule will generate an executable file named `pipex`.
+This rule will generate an executable file named `push_swap`.
 
 To launch the executable you should follow this syntax:
 
 ```sh
-$ ./pipex infile cmd1 cmd2 outfile
+$ ./push_swap 7 -1 100 3 -30 8 49
 ```
 
 # Bonus Part
 
 ## 💎 **Features**
 ```
-- Supports multiple pipes, enabling users to chain multiple commands together
-- Supports append redirections (including here document)
+- Checks if the instructions written in the terminal sort the stack given as argument
+- Works as a tester for push_swap
+- Returns OK (number of operations performed) if the stack is sorted correctly
+- Returns KO if the stack isn't sorted
 ```
-
-<tbody>
-			<td><image src="img/bonus_overwrite.png"></td>
-			<td><image src="img/bonus_append.png"></td>
-</tbody>
 
 ## :link: **Compilation**
 To compile the program you should run `make bonus`.
-This rule will generate an executable file named `bonus`.
+This rule will generate an executable file named `checker`. To launch the executable you should follow this syntax:
 
-To launch the executable you should follow this syntax:
-
-Executes overwrite redirections:
+To check if the instructions written in the terminal sort the stack:
 
 ```sh
-$ ./bonus infile cmd1 cmd2 cmd3 ... cmdn outfile
+$ ./checker 3 2 1
 ```
+Or, if you want to test your push_swap:
+
+```sh
+$ ./push_swap 7 -1 100 3 -30 8 49 | ./checker 7 -1 100 3 -30 8 49
+```
+
+## 🥇 **Testing**
+
+### Check if the instructions written in the terminal sort the stack
+
+```sh
+$ ./checker 3 2 1
+```
+The program will wait for you to write the instrutions in the terminal. When fineshed you should press Ctrl-D.
+The checker will then verify if the instructions given sort the arguments correctly.
+<td><image src="img/checker_instructions.png"></td>
+
+### You can use the checker to test your sorting algorithm
+
+```sh
+$ ./push_swap 7 -1 100 3 -30 8 49 | ./checker 7 -1 100 3 -30 8 49
+```
+<td><image src="img/checker_algorithm.png"></td>
