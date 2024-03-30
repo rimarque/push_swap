@@ -11,7 +11,7 @@ As a bonus a tester was developed that checks if the stack is sorted by the acti
 ## :inbox_tray: **Cloning the repository**
 
 ```shell
-git clone git@github.com:rimarque/FDF.git 
+git clone git@github.com:rimarque/push_swap.git 
 ```
 
 # Mandatory Part
