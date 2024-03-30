@@ -29,7 +29,7 @@ git clone git@github.com:rimarque/push_swap.git
 	- ra (rotate a), rb (rotate b), rr (ra e rb at the same time)
 	- rra (reverse rotate a), rrb (reverse rotate b), rrr (ra e rb at the same time)
 - The program uses circular double linked lists to implement the Turk Algorithm: https://medium.com/@ayogun/push-swap-c1f5d2d41e97
-- The algothim sorts a stack of five numbers in 8 moves or less, a stack of 100 numbers in less than 700 moves and a stack of 500 values in less than 5500
+- The algothim sorts a stack of five numbers in 12 moves or less, a stack of 100 numbers in less than 700 moves and a stack of 500 values in less than 5500
 ```
 </tbody>
 	<td><image src="img/mandatory.png"></td>
