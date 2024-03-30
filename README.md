@@ -31,7 +31,7 @@ git clone git@github.com:rimarque/push_swap.git
 - Uses circular double linked lists to implement the Turk Algorithm: https://medium.com/@ayogun/push-swap-c1f5d2d41e97
 - Sorts a stack of 5 numbers in 12 moves or less
 - Sorts a stack of 100 numbers in less than 700 moves
-- Sorts a stack of 500 values in less than 5500
+- Sorts a stack of 500 values in less than 5500 moves
 ```
 </tbody>
 	<td><image src="img/mandatory.png"></td>
