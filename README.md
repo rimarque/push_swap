@@ -61,6 +61,7 @@ $ ./push_swap 7 -1 100 3 -30 8 49
 ```
 <td><image src="img/checker_instructions.png"></td>
 <td><image src="img/checker_push_swap.png"></td>
+<td><image src="img/checker_wrong_instructions.png"></td>
 
 ## :link: **Compilation**
 To compile the program you should run `make bonus`.
