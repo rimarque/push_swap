@@ -3,7 +3,7 @@
 ## :speech_balloon: **About**
 Implementation of a data sorting algorithm, that sorts data on a stack, with a limited set of instructions, using the lowest possible number of actions. 
 The push_swap program sorts the stack given as an argument and prints the actions performed by the algorithm. 
-As a bonus a tester was developed that checks if the stack is sorted by the actions performed and counts them.
+As a bonus a tester was developed that checks if the stack is sorted by the actions performed.
 
 ## 🙋‍♀️ **Authorship**
 - [Rita Marques](https://github.com/rimarque)
