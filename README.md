@@ -33,6 +33,7 @@ The instructions used to sort the stack are printed in the terminal
 - ra (rotate a), rb (rotate b), rr (ra e rb at the same time)
 - rra (reverse rotate a), rrb (reverse rotate b), rrr (ra e rb at the same time)
 ```
+Sorts the stack using the lowest possible number of actions
 ```
 - Sorts a stack of 5 numbers in 12 moves or less
 - Sorts a stack of 100 numbers in less than 700 moves
