@@ -18,6 +18,7 @@ git clone git@github.com:rimarque/push_swap.git
 
 ## 💎 **Features**
 Uses circular double linked lists to implement the [Turk Algorithm](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
+
 Sorts the stack given as argument (stack a), using an empty stack (stack b) and a limited set of instructions
 ```
 - swap: swaps the 2 elements at the top of the stack
