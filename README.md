@@ -19,7 +19,7 @@ git clone git@github.com:rimarque/push_swap.git
 ## 💎 **Features**
 ```
 - Sorts the stack given as argument (stack a), using an empty stack (stack b) and a limited set of instructions:
-	- swap: swaps the 2 elements of the top of the stack
+	- swap: swaps the 2 elements at the top of the stack
 	- push: pushes an element from the top of a stack to another
 	- rotate: the first element of the stack becomes the last one
 	- reverse rotate: the last element becomes the first one
