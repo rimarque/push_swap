@@ -17,20 +17,21 @@ git clone git@github.com:rimarque/push_swap.git
 # Mandatory Part
 
 ## 💎 **Features**
-- Uses circular double linked lists to implement the [Turk Algorithm](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
-- Sorts the stack given as argument (stack a), using an empty stack (stack b) and a limited set of instructions
+Uses circular double linked lists to implement the [Turk Algorithm](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
+Sorts the stack given as argument (stack a), using an empty stack (stack b) and a limited set of instructions
 ```
-	- swap: swaps the 2 elements at the top of the stack
-	- push: pushes an element from the top of a stack to another
-	- rotate: the first element of the stack becomes the last one
-	- reverse rotate: the last element becomes the first one
+- swap: swaps the 2 elements at the top of the stack
+- push: pushes an element from the top of a stack to another
+- rotate: the first element of the stack becomes the last one
+- reverse rotate: the last element becomes the first one
 ```
-- The instructions used to sort the stack are printed in the terminal
+The instructions used to sort the stack are printed in the terminal
 ```
-	- sa (swap a), sb (swap b), ss (sa e sb at the same time)
-	- pa (push from b to a), pb (push from a to b)
-	- ra (rotate a), rb (rotate b), rr (ra e rb at the same time)
-	- rra (reverse rotate a), rrb (reverse rotate b), rrr (ra e rb at the same time)
+- sa (swap a), sb (swap b), ss (sa e sb at the same time)
+- pa (push from b to a), pb (push from a to b)
+- ra (rotate a), rb (rotate b), rr (ra e rb at the same time)
+- rra (reverse rotate a), rrb (reverse rotate b), rrr (ra e rb at the same time)
+```
 ```
 - Sorts a stack of 5 numbers in 12 moves or less
 - Sorts a stack of 100 numbers in less than 700 moves
